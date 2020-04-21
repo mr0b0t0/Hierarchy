@@ -30,16 +30,29 @@ export class Structure{
         _traverse(this.root);
     }
     add = (newNode, parentId) =>{
-        console.log('method __add__ was called ', newNode.name)
         if (this.root === null) this.root = newNode;
         else{
-            const _map = node => {if(node.id == parentId)node.children.push(newNode);}
+            const _map = node => {
+                if(node.id === parentId){
+                    node.children.push(newNode);
+                }
+            }
             this.traverse(node => _map(node));
         }
         return this;
     }
+    editName = (name, id) =>{
+        this.traverse(
+            node => {
+                if(node.id === id){
+                    node.name = name;
+                }
+            }
+        )
+        return this;
+    }
     delete = node => {
-        if(!node) return;
+        if(node === null) return this;
         if(this.root.id === node.id){ 
             this.root = null;
         }
@@ -53,6 +66,7 @@ export class Structure{
                 }
             )
         }
+        return this;
     }
     displayUnique = id =>{
         this.traverse(item => {if(item.id===id) item.display()});
@@ -61,4 +75,3 @@ export class Structure{
         if(this.root) this.traverse(item => item.display());
     }
 }
-

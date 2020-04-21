@@ -4,8 +4,9 @@ import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import InputField from './InputField'
 
+import {add, edit, remove} from '../../actions'
 
-const Buttons = currentId => {
+const Buttons = ({structure, currentNode, setStructure}) => {
     const [addField, setAddField] = useState(false);
     const [editField, setEditField] = useState(false);
     const handleAddField = () =>{
@@ -24,6 +25,10 @@ const Buttons = currentId => {
         }
         else setEditField(!editField);
     }
+    const handleDelete = e =>{
+        e.preventDefault();
+        setStructure(remove(structure, currentNode));
+    }
     return (
         <div style={{display: 'flex', flexDirection: 'row', margin: '5px'}}>
             <div onClick={handleAddField}>
@@ -32,18 +37,26 @@ const Buttons = currentId => {
             <div onClick={handleEditField}>
                 <EditIcon className='btn' color='primary'/>
             </div>
-            <DeleteIcon className='btn' color='secondary'/>
+            <div onClick={handleDelete}>
+                <DeleteIcon className='btn' color='secondary'/>
+            </div>
             <InputField 
             setToggle={setAddField}
             toggle={addField}
              label='Add Item'               
-               action='add'
+               action={add}
+               structure={structure}
+               currentId={currentNode.id}
+               setStructure={setStructure}
                />
             <InputField
             setToggle={setEditField}
              toggle={editField} 
              label='Edit This Item'               
-               action='edit'
+               action={edit}
+               structure={structure}
+               currentId={currentNode.id}
+               setStructure={setStructure}
                />
         </div>
     );

@@ -1,33 +1,34 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 // ui
 import Header from './ui/Header'
 
 // routes
 import Home from './routes/Home'
-import Hierarchy from './routes/Hierarchy'
+
+import {Structure} from './structure'
 
 
-// redux
-import {Provider} from 'react-redux'
-import store from '../redux/store'
-
-const App = () => {
-  return (
-    <div className="App">
-        <Provider store={store}>
-            <Router>
-                <Header/>
-                <Switch>
-                    <Route exact path='/' component={Home}/>
-                    <Route exact path='/hierarchy' component={Hierarchy}/>
-                </Switch>
-            </Router>
-        </Provider>
-    </div>
-  );
+class App extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            structure: new Structure()
+        };
+    }
+    setStructure = newStructure =>{
+        this.setState({
+            structure: newStructure
+        })
+    }
+    render(){
+        return (
+            <div className="App">
+                <Header structure={this.state.structure} setStructure={this.setStructure}/>
+                <Home structure={this.state.structure} setStructure={this.setStructure}/>
+            </div>
+        );
+    }
 }
 
 export default App;
