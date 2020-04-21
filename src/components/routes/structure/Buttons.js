@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
 import InputField from './InputField'
+import Delete from './Delete'
 
-import {add, edit, remove} from '../../actions'
+import {add, edit} from '../../actions'
 
 // adding, editing, removing
 const Buttons = ({structure, currentNode, setStructure}) => {
@@ -26,10 +26,6 @@ const Buttons = ({structure, currentNode, setStructure}) => {
         }
         else setEditField(!editField);
     }
-    const handleDelete = e =>{
-        e.preventDefault();
-        setStructure(remove(structure, currentNode));
-    }
     return (
         <div style={{display: 'flex', flexDirection: 'row', margin: '5px'}}>
             <div onClick={handleAddField}>
@@ -38,9 +34,7 @@ const Buttons = ({structure, currentNode, setStructure}) => {
             <div onClick={handleEditField}>
                 <EditIcon className='btn' color='primary'/>
             </div>
-            <div onClick={handleDelete}>
-                <DeleteIcon className='btn' color='secondary'/>
-            </div>
+            <Delete structure={structure} currentNode={currentNode} setStructure={setStructure} />
             <InputField 
             setToggle={setAddField}
             toggle={addField}

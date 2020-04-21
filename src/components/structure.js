@@ -64,10 +64,9 @@ export class Structure{
         else{
             this.traverse(
                 item => {
-                    if(item.isParent(node.id))
-                    item.children
-                    .filter(
-                        element => element.id !== node.id);
+                    if(item.isParent(node.id)){
+                        item.children.splice(item.children.indexOf(node), 1);
+                    }
                 }
             )
         }
