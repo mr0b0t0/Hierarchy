@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button'
 
 import {remove} from '../actions'
 
+// header, if the btn is pressed, removes the node of the structure 
 const Header = ({structure, setStructure}) => {
     const handleDelete = e =>{
         e.preventDefault();

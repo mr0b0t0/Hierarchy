@@ -8,7 +8,7 @@ import Home from './routes/Home'
 
 import {Structure} from './structure'
 
-
+// main function that contains the structure in the state
 class App extends Component {
     constructor(props){
         super(props);

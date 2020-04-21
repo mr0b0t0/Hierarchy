@@ -3,7 +3,7 @@ import SendRoundedIcon from '@material-ui/icons/SendRounded';
 import TextField from '@material-ui/core/TextField';
 
 
-
+// is used to handle both edit name form and add new node form
 const InputField = ({setToggle, toggle, label, action, structure, currentId, setStructure}) => {
     const [value, setValue] = useState('');
     const handleClick = e =>{

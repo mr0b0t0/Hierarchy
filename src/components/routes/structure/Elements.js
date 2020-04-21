@@ -10,6 +10,7 @@ import Buttons from './Buttons'
 
 
 const Elements = ({structure, setStructure}) =>{
+    // recursive function, goes through every node and displays it
     const _Elements = Node => {
         if (Node.children.length){
             return (

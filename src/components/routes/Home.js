@@ -11,12 +11,14 @@ import Elements from './structure/Elements'
 import {add} from '../actions'
 
 
+// handles displaying the elements
 const Display = ({structure, setStructure}) =>{
     const none = <></>;
     const elements = <Elements structure={structure} setStructure={setStructure}/>;
     return structure.root ? elements : none;
 }
 
+// handles displaying the very first form
 const Form = ({name, project, handleChange, handleClick, structure}) => {
     if(structure.root === null){
         return (
@@ -38,6 +40,7 @@ const Form = ({name, project, handleChange, handleClick, structure}) => {
     return <></>
 }
 
+// displays the tree
 const Home = ({structure, setStructure}) => {
     const [project, setProject] = useState('');
     const handleClick = () =>{

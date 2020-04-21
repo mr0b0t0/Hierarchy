@@ -6,6 +6,7 @@ import InputField from './InputField'
 
 import {add, edit, remove} from '../../actions'
 
+// adding, editing, removing
 const Buttons = ({structure, currentNode, setStructure}) => {
     const [addField, setAddField] = useState(false);
     const [editField, setEditField] = useState(false);
