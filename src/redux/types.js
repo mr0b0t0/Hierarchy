@@ -1,0 +1,3 @@
+export const ADD_SUCCESS = 'ADD_SUCCESS';
+export const RENAME_SUCCESS = 'RENAME_SUCCESS';
+export const DELETE_SUCCESS = 'DELETE_SUCCESS' ;
