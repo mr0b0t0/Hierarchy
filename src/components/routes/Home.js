@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
-import Elements from './structure/Elements'
+import Tree from './structure/Tree'
 
 
 
@@ -14,8 +14,8 @@ import {add} from '../actions'
 // handles displaying the elements
 const Display = ({structure, setStructure}) =>{
     const none = <></>;
-    const elements = <Elements structure={structure} setStructure={setStructure}/>;
-    return structure.root ? elements : none;
+    const tree = <Tree structure={structure} setStructure={setStructure}/>;
+    return structure.root ? tree : none;
 }
 
 // handles displaying the very first form

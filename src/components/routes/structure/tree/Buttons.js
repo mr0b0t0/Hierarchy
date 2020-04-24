@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import AddRoundedIcon from '@material-ui/icons/AddRounded';
 import EditIcon from '@material-ui/icons/Edit';
-import InputField from './InputField'
-import Delete from './Delete'
+import InputField from './InputField';
+import Delete from './Delete';
 
-import {add, edit} from '../../actions'
+import {add, edit} from '../../../actions';
 
 // adding, editing, removing
 const Buttons = ({structure, currentNode, setStructure}) => {
@@ -27,7 +27,7 @@ const Buttons = ({structure, currentNode, setStructure}) => {
         else setEditField(!editField);
     }
     return (
-        <div style={{display: 'flex', flexDirection: 'row', margin: '5px'}}>
+        <div style={{display: 'flex', flexDirection: 'row', paddingLeft: '5px'}}>
             <div onClick={handleAddField}>
                 <AddRoundedIcon className='btn' color='disabled' />     
             </div>
